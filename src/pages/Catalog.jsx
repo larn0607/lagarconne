@@ -18,16 +18,16 @@ const Catalog = () => {
   const { search } = useLocation()
 
   useEffect(() => {
-    const getProduct = () => {
+    const getProduct = async () => {
       let listProduct = null
       let listDesigners = null
       const page = new URLSearchParams(search).get('page') || 1
       const sort = new URLSearchParams(search).get('sort_by') || 'newest'
       if (path === 'new-arrivals' || path === 'all') {
-        listProduct = Productdata.getAllProduct()
+        listProduct = await Productdata.getAllProduct()
       } else {
-        listProduct = Productdata.getProductByCondition(path)
-        listDesigners = designersData.findDesigner(path)
+        listProduct = await Productdata.getProductByCondition(path)
+        listDesigners = await designersData.findDesigner(path)
       }
       switch (sort) {
         case 'newest':

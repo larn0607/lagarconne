@@ -14,7 +14,6 @@ const Detail = () => {
     <Helmet title={product.productName}>
       <div className="detail">
         <ProductView product={product} />
-        {/* <Alo product={product} /> */}
         {relatedProducts && relatedProducts.length > 0 && (
           <div className="related__product">
             <div className="related__product__title">you may also like</div>
