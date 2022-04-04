@@ -5,7 +5,7 @@ import { useParams, useLocation } from 'react-router-dom'
 import ProductCard from '../components/ProductCard'
 import Helmet from '../components/Helmet'
 import Pagination from '../components/Pagination'
-import Sorting from '../components/Sorting'
+// import Sorting from '../components/Sorting'
 
 const Catalog = () => {
   const { path } = useParams()
