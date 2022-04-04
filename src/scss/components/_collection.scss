@@ -1,0 +1,150 @@
+.collection__category {
+  margin-top: 30px;
+  margin-bottom: 60px;
+
+  @include tablet {
+    display: none;
+  }
+}
+
+.collection__content {
+  display: flex;
+
+  &__designers {
+    max-width: 200px;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__main {
+    flex: 1;
+  }
+}
+
+.subnav__mobile {
+  display: none;
+
+  @include tablet {
+    @include flex(space-between, center);
+    
+  
+    &__item {
+      text-transform: capitalize;
+    text-decoration: underline;
+      cursor: pointer;
+    }
+
+  }
+  
+  &__container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    z-index: 99;
+    pointer-events: none;
+    transition: opacity 0.1s ease;
+
+    &.active {
+      opacity: 1;
+      pointer-events: auto;
+      transition: opacity 0.1s ease;
+    }
+
+    &__designers {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      height: 100vh;
+      width: 220px;
+      background: #e9e9e9;
+      z-index: 99;
+      padding: 6px 15px;
+      overflow-y: scroll;
+      transform: translateX(100%);
+      transition: transform 0.5s ease;
+
+      &.active {
+        transform: translateX(0);
+      }
+
+      &__title {
+        padding: 15px 0;
+        font-weight: bold;
+      }
+
+      &__item {
+        padding: 10px 0;
+        text-transform: capitalize;
+      }
+    }
+
+    &__categories {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      height: 100vh;
+      width: 220px;
+      background: #fff;
+      z-index: 500;
+      padding: 6px 15px;
+      overflow-y: scroll;
+      transform: translateX(-100%);
+      transition: transform 0.5s ease;
+
+      &.active {
+        transform: translateX(0);
+      }
+
+      &__title {
+        margin: 25px 0;
+        text-transform: uppercase;
+        color: #9b9a9b;
+      }
+      
+      hr {
+        margin: 20px 0;
+        border: 1px solid #9b9a9b;
+      }
+
+      ul {
+        list-style-type: none;
+        text-transform: uppercase;
+        padding: 10px 0;
+        // margin: 0 10px;
+
+        li {
+          margin: 0 10px;
+        }
+
+        hr {
+          margin-top: unset;
+        }
+      }
+
+      ul > li > ul {
+        text-indent: 10px;
+        list-style-type: circle;
+
+        & > li {
+          padding: 10px 0;
+        }
+      }
+    }
+  }
+}
+
+.subnav__mobile__close {
+  position: absolute;
+  top: 0;
+  right: 5%;
+  font-size: 2rem;
+  cursor: pointer;
+}

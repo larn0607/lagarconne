@@ -1,0 +1,15 @@
+.sorting {
+  text-align: right;
+  padding: 15px;
+
+  & select {
+    border: none;
+    outline: none;
+
+
+    & option {
+      background-color: transparent;
+      box-shadow: unset;
+    }
+  }
+}

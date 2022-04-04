@@ -1,0 +1,22 @@
+.pagination {
+  @include flex(flex-end, center);
+
+  & > * {
+    margin-right: 1rem;
+  }
+
+  span.dot {
+    cursor: default;
+  }
+
+  span {
+    cursor: pointer;
+    font-size: 1rem;
+
+  &.active {
+      font-weight: bold;
+    }
+  }
+
+
+}

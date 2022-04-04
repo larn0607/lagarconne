@@ -1,0 +1,33 @@
+.detail {
+  max-width: 1440px;
+
+  .related__product {
+    width: 100%;
+    
+    &__title {
+      text-transform: capitalize;
+      font-weight: bold;
+      padding-left: 1rem;
+    }
+
+    &__item {
+      @include flex(flex-start, center);
+      flex-wrap: wrap;
+      width: 75%;
+
+      @include tablet {
+        width: 100%;
+
+        & .product__card {
+          width: 25%;
+        }
+      }
+
+      @include mobile {
+        & .product__card {
+          width: 50%;
+        }
+      }
+    }
+  }
+}

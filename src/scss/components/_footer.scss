@@ -1,0 +1,40 @@
+.footer {
+  width: 100%;
+  @include flex(space-between, center);
+  padding: 2rem;
+  // margin: 2rem;
+
+  @include tablet {
+    align-items: center;
+    flex-direction: column;
+    
+    &__menu {
+      width: 100%;
+      flex-wrap: wrap;
+      // padding-right: 24px;
+    }
+  }
+
+  &__menu {
+    @include flex(space-between, center);
+    flex: 3;
+    // padding-right: 4rem;
+    // align-self: start;
+    
+    &__item {
+      text-transform: uppercase;
+
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__social {
+    flex: 1;
+    padding: 0 1rem;
+    font-size: 1.5rem;
+    @include flex(flex-end, center);
+    cursor: pointer;
+  }
+}

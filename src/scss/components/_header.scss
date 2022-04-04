@@ -1,0 +1,157 @@
+.header {
+  width: 100%;
+  height: $header-height;
+  @include flex(space-between, center);
+  text-transform: uppercase;
+  font-weight: normal;
+  padding: 0 45px;
+  position: relative;
+  z-index: 1;
+
+  @include tablet {
+    border-bottom: 1px solid #e9e9e9;
+  }
+
+  &__logo {
+    flex: 2;
+    transition: transform 0.4s ease;
+
+    @include tablet {
+      position: absolute;
+      flex: 0;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    & a img {
+      width: 30%;
+
+      @include tablet {
+        width: 100%;
+      }
+    }
+  }
+
+  & .menu__mobile__container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    z-index: 99;
+
+    &.active {
+      opacity: 1;
+      pointer-events: auto;
+      transition: opacity 0.5s ease;
+    }
+
+    .menu__mobile {
+      position: relative;
+      height: 100vh;
+      width: 180px;
+      background: #fff;
+      z-index: 99;
+      padding-top: 30px;
+      padding-left: 20px;
+      transform: translateX(-100%);
+      transition: transform 0.5s ease;
+
+      &.active {
+        transform: translateX(0);
+      }
+  
+      &__item {
+        @include flex(flex-start, flex-start);
+        flex-direction: column;
+        padding-top: 1rem;
+        text-transform: capitalize;
+        font-size: 1rem;
+      }
+  
+      &__close {
+        display: none;
+        cursor: pointer;
+  
+        @include tablet {
+          display: block;
+          position: absolute;
+          right: 3%;
+          bottom: 96%;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+
+  &__menu {
+    flex: 3;
+    @include flex(space-between, center);
+
+    &__mobile-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+
+      @include tablet {
+        display: block;
+      }
+    }
+
+    &__left,
+    &__right {
+      @include flex(center, center);
+    }
+
+    &__right {
+      &__item {
+
+        a {
+          @include flex(center, center);
+        }
+
+        span {
+          
+          @include tablet {
+            display: none;
+          }
+        }
+
+        div {
+          display: none;
+          width: 20px;
+          color: #e9e9e9;
+
+          @include tablet {
+            @include flex(center, center);
+          }
+        }
+      }
+    }
+
+    &__item ~ &__item {
+      margin-left: 2rem;
+    }
+
+    &__left {
+
+      @include tablet {
+        display: none;
+
+        &.active {
+          transform: translateX(0);
+        }
+
+        &__item ~ &__item {
+          margin-left: unset;
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+}

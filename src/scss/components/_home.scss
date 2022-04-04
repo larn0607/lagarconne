@@ -1,0 +1,9 @@
+.navbar__hero-slider {
+  width: 100%;
+  @include flex(unset, unset);
+  margin-bottom: 100px;
+
+  @include tablet {
+    margin-bottom: 0;
+  }
+}

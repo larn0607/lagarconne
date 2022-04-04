@@ -1,0 +1,22 @@
+.sidebar {
+  padding: 0 1rem;
+  margin-right: 2rem;
+  flex: 2;
+
+  & ul{
+    list-style-type: none;
+    text-transform: uppercase;
+
+    & li ~ li {
+      padding-top: 1.5rem;
+    }
+  }
+
+  @include tablet {
+    display: none;
+
+    & ul {
+      text-transform: capitalize;
+    }
+  }
+}

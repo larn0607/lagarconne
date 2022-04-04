@@ -1,0 +1,48 @@
+.designers {
+  width: 100%;
+  text-transform: uppercase;
+
+  &__title {
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  &__menu__item {
+    font-size: 11px;
+    line-height:2;
+    &:hover {
+
+      text-decoration: underline;
+    }
+  }
+}
+
+.designers__index {
+  width: 70%;
+  margin: 10px auto;
+  @include flex();
+  flex-wrap: wrap;
+
+  & > * {
+    margin: 30px;
+    text-transform: capitalize;
+  }
+
+  &__list {
+    &__item {
+      font-size: 13px;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.designers__index__title {
+  width: 70%;
+  margin: 10px auto;
+  text-transform: capitalize;
+  font-size: 14px;
+  font-weight: bold;
+}

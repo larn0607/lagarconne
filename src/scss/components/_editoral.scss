@@ -1,0 +1,19 @@
+.editoral {
+  width: 80%;
+  @include flex(center, center);
+  flex-direction: column;
+  margin: 30px auto;
+
+  &__item {
+    @include flex(space-between, center);
+
+    &__title {
+      font-size: 2.3rem;
+    }
+
+    &__image {
+      width: 50%;
+      padding: 0 50px;
+    }
+  }
+}
