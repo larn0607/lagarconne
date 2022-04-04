@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.73613b15.css",
-    "main.js": "./static/js/main.ef2b20cb.js",
+    "main.js": "./static/js/main.abcaae68.js",
     "static/media/thumb.jpg": "./static/media/thumb.9f335c02980720130202.jpg",
     "static/media/jacket-2.jpg": "./static/media/jacket-2.fb771c65377c99d7af48.jpg",
     "static/media/1.jpg": "./static/media/1.a11db1b70329c6b8d3ab.jpg",
@@ -145,10 +145,10 @@
     "static/media/sleeveless-uniform-dress-1.jpg": "./static/media/sleeveless-uniform-dress-1.52b755803ffcf6be0ef4.jpg",
     "index.html": "./index.html",
     "main.73613b15.css.map": "./static/css/main.73613b15.css.map",
-    "main.ef2b20cb.js.map": "./static/js/main.ef2b20cb.js.map"
+    "main.abcaae68.js.map": "./static/js/main.abcaae68.js.map"
   },
   "entrypoints": [
     "static/css/main.73613b15.css",
-    "static/js/main.ef2b20cb.js"
+    "static/js/main.abcaae68.js"
   ]
 }
