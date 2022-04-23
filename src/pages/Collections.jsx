@@ -14,7 +14,6 @@ const Collections = () => {
   const [page, setPage] = useState(1)
   const [sort, setSort] = useState('')
 
-
   const categoriesRef = useRef()
   const categoriesContainerRef = useRef()
   const designersRef = useRef()
@@ -35,6 +34,30 @@ const Collections = () => {
     setPage(Number(page))
     setSort(sort)
   }, [search])
+
+  useEffect(() => {
+    const handlePressEscape = e => {
+      if (
+        designersContainerRef.current.classList.contains('active') &&
+        e.keyCode === 27
+      ) {
+        designersRef.current.classList.toggle('active')
+        designersContainerRef.current.classList.toggle('active')
+      }
+      if (
+        categoriesContainerRef.current.classList.contains('active') &&
+        e.keyCode === 27
+      ) {
+        categoriesRef.current.classList.toggle('active')
+        categoriesContainerRef.current.classList.toggle('active')
+      }
+    }
+    document.addEventListener('keydown', handlePressEscape)
+
+    return () => {
+      document.removeEventListener('keydown', handlePressEscape)
+    }
+  }, [designersContainerRef, categoriesContainerRef])
 
   return (
     <Helmet title="Collections">

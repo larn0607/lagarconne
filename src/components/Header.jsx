@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../assets/lagarconne-logo.png'
 import menuData from '../data/menuData'
@@ -16,6 +16,23 @@ const Header = () => {
     menuContainerRef.current.classList.toggle('active')
   }
 
+  useEffect(() => {
+    const handlePressEscape = e => {
+      if (
+        menuContainerRef.current.classList.contains('active') &&
+        e.keyCode === 27
+      ) {
+        menuRef.current.classList.toggle('active')
+        menuContainerRef.current.classList.toggle('active')
+      }
+    }
+    document.addEventListener('keydown', handlePressEscape)
+
+    return () => {
+      document.removeEventListener('keydown', handlePressEscape)
+    }
+  }, [menuContainerRef])
+
   const HeaderNav = [
     {
       display: 'Designer Index',
@@ -31,7 +48,10 @@ const Header = () => {
     }
   ]
 
-  const countProducts = cartItems.reduce((total, item) => total + item.quantity, 0)
+  const countProducts = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  )
 
   return (
     <div className="header">
@@ -64,16 +84,11 @@ const Header = () => {
             <Link to="/cart">
               <span>
                 my bag
-                {
-                cartItems.length > 0 ? ` (${countProducts})` : ''
-                }
+                {cartItems.length > 0 ? ` (${countProducts})` : ''}
               </span>
               <div>
                 <img src={bag} alt="" />
-                {
-                  cartItems.length > 0 ? ` ${countProducts}` : ''
-                }
-
+                {cartItems.length > 0 ? ` ${countProducts}` : ''}
               </div>
             </Link>
           </div>
@@ -81,17 +96,18 @@ const Header = () => {
       </div>
       <div className="menu__mobile__container" ref={menuContainerRef}>
         <div className="menu__mobile" ref={menuRef}>
-
-        {menuData.map((item, index) => (
-          <div className="menu__mobile__item" key={index} onClick={handleToggleMenu}>
-            <Link to={item.path}>
-              {item.display}
-            </Link>
+          {menuData.map((item, index) => (
+            <div
+              className="menu__mobile__item"
+              key={index}
+              onClick={handleToggleMenu}
+            >
+              <Link to={item.path}>{item.display}</Link>
+            </div>
+          ))}
+          <div className="menu__mobile__close" onClick={handleToggleMenu}>
+            <i className="bx bx-x"></i>
           </div>
-        ))}
-        <div className="menu__mobile__close" onClick={handleToggleMenu}>
-          <i className="bx bx-x"></i>
-        </div>
         </div>
       </div>
     </div>

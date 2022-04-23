@@ -27,8 +27,6 @@ const CartItem = props => {
     dispatch(removeItem(item))
   }
 
-  console.log(item)
-
   return (
     <tr className="cart__info__table__item" key={item.id}>
       <td className="cart__info__table__item__product">

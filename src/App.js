@@ -8,7 +8,7 @@ import Detail from './pages/Detail'
 import DesignersIndex from './pages/DesignersIndex'
 import ScrollToTop from './components/ScrollToTop'
 import Editoral from './pages/editoral/Editoral'
-import Collection from './pages/editoral/Blog';
+import Collection from './pages/editoral/Blog'
 
 function App() {
   return (

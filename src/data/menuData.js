@@ -41,7 +41,7 @@ const menuData = [
   },
   {
     display: 'FAQs',
-    path: '/faq'
+    path: '/'
   },
   
 ]

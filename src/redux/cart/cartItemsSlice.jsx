@@ -46,7 +46,8 @@ export const cartItemsSlice = createSlice({
       const item = action.payload
       state.value = delItem(state.value, item)
       localStorage.setItem('cartItems', JSON.stringify(sortItems(state.value)))
-    }
+    },
+
   }
 })
 
