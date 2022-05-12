@@ -499,8 +499,9 @@ const listDesigner = () => {
 }
 
 const listDesignerByName = Object.values(listDesigner().reduce((acc, cur) => {
-  const duplicate = designer.filter(d => cur.name.toLowerCase().slice(0,1) === d.name.toLowerCase().slice(0,1))
-  return {...acc, [cur.name.toLowerCase().slice(0, 1)] : duplicate }
+  const list = designer.filter(d => cur.name.toLowerCase().slice(0,1) === d.name.toLowerCase().slice(0,1))
+  const firstCharacter = cur.name.toLowerCase().slice(0, 1)
+  return {...acc, [firstCharacter] : list }
 }, []))
 
 const designersData = {

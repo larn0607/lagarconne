@@ -8,15 +8,15 @@ const Pagination = ({ totalPages, page, sort }) => {
 
   useEffect(() => {
     const newArr = [...Array(totalPages)].map((_, i) => i + 1)
-    if(newArr.length < 4) {
+    if(newArr.length < 7) {
       return newArr
     }
-    if(totalPages - page >= 4) {
-      setFirstArr(newArr.slice(page - 1, page + 2))
-      setLastArr(newArr.slice(totalPages - 1))
+    if(totalPages - page >= 7) {
+      setFirstArr(newArr.slice(page - 1, page + 5))
+      setLastArr(newArr.slice(totalPages - 2))
     }
     else {
-      setFirstArr(newArr.slice(totalPages - 4, totalPages))
+      setFirstArr(newArr.slice(totalPages - 7))
       setLastArr([])
     }
 
@@ -39,6 +39,7 @@ const Pagination = ({ totalPages, page, sort }) => {
   }
   const next = () => {
     const newPage = Math.min(page + 1, totalPages)
+    console.log(newPage, totalPages)
     navigate(`?page=${newPage}&sort_by=${sort}`)
   }
   const jump = num => {

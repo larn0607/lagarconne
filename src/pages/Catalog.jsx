@@ -11,23 +11,23 @@ const Catalog = () => {
   const { path } = useParams()
   const [products, setProducts] = useState([])
   const [designers, setDesigners] = useState([])
-  const productPerPage = 16
+  const productPerPage = 4
   const [page, setPage] = useState(1)
   const [sort, setSort] = useState('')
 
   const { search } = useLocation()
 
   useEffect(() => {
-    const getProduct = async () => {
+    const getProduct = () => {
       let listProduct = null
       let listDesigners = null
       const page = new URLSearchParams(search).get('page') || 1
       const sort = new URLSearchParams(search).get('sort_by') || 'newest'
       if (path === 'new-arrivals' || path === 'all') {
-        listProduct = await Productdata.getAllProduct()
+        listProduct = Productdata.getAllProduct()
       } else {
-        listProduct = await Productdata.getProductByCondition(path)
-        listDesigners = await designersData.findDesigner(path)
+        listProduct = Productdata.getProductByCondition(path)
+        listDesigners = designersData.findDesigner(path)
       }
       switch (sort) {
         case 'newest':
