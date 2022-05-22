@@ -8,15 +8,15 @@ const Pagination = ({ totalPages, page, sort }) => {
 
   useEffect(() => {
     const newArr = [...Array(totalPages)].map((_, i) => i + 1)
-    if(newArr.length < 7) {
+    if(newArr.length < 4) {
       return newArr
     }
-    if(totalPages - page >= 7) {
-      setFirstArr(newArr.slice(page - 1, page + 5))
-      setLastArr(newArr.slice(totalPages - 2))
+    if(totalPages - page >= 4) {
+      setFirstArr(newArr.slice(page - 1, page + 2))
+      setLastArr(newArr.slice(totalPages - 1))
     }
     else {
-      setFirstArr(newArr.slice(totalPages - 7))
+      setFirstArr(newArr.slice(totalPages - 4))
       setLastArr([])
     }
 
