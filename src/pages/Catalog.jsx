@@ -11,7 +11,7 @@ const Catalog = () => {
   const { path } = useParams()
   const [products, setProducts] = useState([])
   const [designers, setDesigners] = useState([])
-  const productPerPage = 50
+  const productPerPage = 10
   const [page, setPage] = useState(1)
   const [sort, setSort] = useState('')
 
